@@ -2,5 +2,5 @@ project: dictdiffer
 target: differ-fuzz
 
 cmds:
-  - cmd: /src/mayhem/fuzz_differ.py
+  - cmd: /fuzz_differ.py
     libfuzzer: true

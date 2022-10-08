@@ -90,14 +90,18 @@ def TestOneInput(data):
     if not dict_a or not dict_b:
         return
 
-    result = dictdiffer.diff(dict_a, dict_b)
-    patched = dictdiffer.patch(dict_a, result)
-    assert patched == dict_b
+    try:
+        result = dictdiffer.diff(dict_a, dict_b)
+        patched = dictdiffer.patch(dict_a, result)
+        assert patched == dict_b
 
-    reverted = dictdiffer.revert(result, patched)
-    assert reverted == dict_a
+        reverted = dictdiffer.revert(result, patched)
+        assert reverted == dict_a
 
-    dictdiffer.swap(result)
+        dictdiffer.swap(result)
+    except TypeError as e:
+        if 'pickle' not in str(e):
+            raise e
 
 
 

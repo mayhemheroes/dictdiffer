@@ -1,0 +1,6 @@
+project: dictdiffer
+target: differ-fuzz
+
+cmds:
+  - cmd: /fuzz_differ.py
+    libfuzzer: true
